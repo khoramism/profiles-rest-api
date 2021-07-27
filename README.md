@@ -11,19 +11,19 @@ how to run this?
 well 
 first we need to download the vagrant server(ubuntu) 
 so run 
-  '''vagrant init ubuntu/bionic64'''
+  ``` vagrant init ubuntu/bionic64``` 
 and now we need to make the server come up 
 simply put 
-  '''vagrant up'''
+  ``` vagrant up``` 
 So far so good. 
 now we need to connect to the server using ssh 
 easily put 
-  '''vagrant ssh'''
+  ``` vagrant ssh``` 
 now as you can see the terminal changed and now shows this 
 Vagrant@ubuntu-bionic:~$
 there you go the server is on!
 later if you want to run the server again you just need to ask for 
-'''
+``` 
 vagrant up
 vagrant ssh
-'''
+``` 
