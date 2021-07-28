@@ -1,10 +1,6 @@
 from rest_framework import serializers
-from .models import UserProfile 
+from .models import UserProfile , ProfileFeedItem
 
-
-class HelloSerializer(serializers.Serializer):
-    ''' Serializes a name field for testing our apiview.'''
-    name = serializers.CharField(max_length=10)
 
 
 class UserProfileSerializer(serializers.ModelSerializer):
@@ -28,3 +24,17 @@ class UserProfileSerializer(serializers.ModelSerializer):
         )
         # it will override the creation of user in order to hash the password.
         return user
+
+class ProfileFeedItemSerializer(serializers.ModelSerializer):
+    '''Serializes profile feed item!'''
+    class Meta:
+        model = ProfileFeedItem
+        fields = ('id','user_profile', 'status_text', 'created_on')
+        
+        # we wnat every feed to be for the user and him only. ergo -->
+        extra_kwargs = {
+            'user_profile':{
+                'read_only':True,
+            }
+        }
+

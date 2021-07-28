@@ -1,5 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import AbstractBaseUser, PermissionsMixin, BaseUserManager
+from django.conf import settings
 
 class UserProfileManager(BaseUserManager):
     """Manager for user profiles"""
@@ -51,3 +52,19 @@ class UserProfile(AbstractBaseUser, PermissionsMixin):
     def __str__(self):
         """Return string representation of user"""
         return self.email
+
+
+class ProfileFeedItem(models.Model):
+    '''Profile status update feed item'''
+    # we use the foriegn key to have a remote model connection
+    user_profile = models.ForeignKey(
+        settings.AUTH_USER_MODEL, 
+        on_delete=models.CASCADE # if your remove the profile the feed is gone BABY!
+    )
+    status_text = models.CharField(max_length=255)
+    created_on = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        '''Return the model as a string!'''
+        return self.status_text
+
