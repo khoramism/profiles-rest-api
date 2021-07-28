@@ -6,7 +6,6 @@
 
 ### how to run this?
 <br>
-<br>
 #### first we need to download the vagrant server(ubuntu) so run 
 
 <br>
