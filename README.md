@@ -5,12 +5,11 @@
 
 
 ### how to run this?
-<br>
+
 #### first we need to download the vagrant server(ubuntu) so run 
 
-<br>
-  ``` vagrant init ubuntu/bionic64``` 
-  <br>
+``` vagrant init ubuntu/bionic64``` 
+
 
 #### and now we need to make the server come up simply put
 <br>
